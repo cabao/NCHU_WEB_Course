@@ -1,0 +1,36 @@
+body {
+    /*width: 100px;
+    height: 100px;*/
+    background-color: #F69D9D;
+    position: relative;
+    /*-webkit-animation-name: example;*/
+    /*-webkit-animation-duration: 30s;*/
+    /*-webkit-animation-iteration-count: infinite;*/
+    animation-name: example;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+/*@-webkit-keyframes example {
+    0%   {background-color:#F69D9D; left:0px; top:0px;}
+    25%  {background-color:#FFEAB6; left:200px; top:0px;}
+    50%  {background-color:#FDFFBA; left:200px; top:200px;}
+    75%  {background-color:#C0FFC2; left:0px; top:200px;}
+    100% {background-color:#F69D9D; left:0px; top:0px;}
+}*/
+
+
+@keyframes example {
+    0%   {background-color:#F69D9D;}
+    25%  {background-color:#FFEAB6;}
+    50%  {background-color:#FDFFBA;}
+    75%  {background-color:#C0FFC2;}
+    100% {background-color:#F69D9D;}
+}
+
+#my_form
+{
+    margin-top: 8%;
+
+
+}

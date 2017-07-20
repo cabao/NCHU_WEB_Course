@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cabao 食記</title>
+    <script src="./js/jquery-3.2.0.min.js" charset="utf-8"></script>
+    <script src="./js/materialize.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/materialize.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('ul.tabs').tabs();
+        $('.modal').modal();
+        var p = $('span.more');
+        p.hide();
+
+
+        $( ".tab" ).click(function(){
+          var select = $( this ).text();
+          if (select === '主食')
+            select = 'food';
+          else if (select === '飲品')
+            select = 'drink';
+          else if (select === '甜點')
+            select = 'dessert';
+          $( ".main_area" ).slideUp();
+          $("#"+select).slideDown();
+        });
+
+        $( "img" ).on( "mouseover", function() {
+          $(this).fadeTo("slow", 0.5);
+        });
+        $( "img" ).on( "mouseleave", function() {
+          $(this).fadeTo("slow", 1);
+        });
+
+
+      });
+    </script>
+    <script type="text/javascript">
+
+      function toggle_div(name)
+      {
+        $('#'+name).slideToggle();
+      }
+
+      function show_about()
+      {
+        $('#about_a').remove();
+        $('#about_author').show();
+      }
+
+      function show_content(tar)
+      {
+          $('#'+tar).toggle('slow');
+      }
+      function show_menu(x)
+      {
+        if (x === 1)
+        {
+          $('#modal3').fadeIn();
+          $('#modal3').click(function() {
+            $(this).fadeOut(1500);
+          });
+        }
+        else if (x === 2)
+        {
+          $('#modal4').fadeIn();
+          $('#modal4').click(function() {
+            $(this).fadeOut(1500);
+          });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo">&nbsp Cabao <img src="./img/icon/title.png"> 記</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#modal_about">About</a></li>
+            <li><a href="index.html" class="waves-effect waves-light btn yellow darken-2 grey-text text-darken-4 " >Home</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div id="modal_about" class="modal">
+      <div class="modal-content">
+        <div style="text-align: center;">
+            <h4>Cabao食記</h4>
+        </div>
+        <span style="font-size:14px;">此站放了個人去吃過喝過的一些店家和地點，主要分為主食、飲品、甜點。</br>分別透過三個分頁呈現，其中，主食頁面還有提供簡單的動畫效果，可以將card隱藏</span>。
+        </br>
+        <a href="#about_author" onclick="javascript:show_about();" id="about_a">關於作者</a></br>
+        <div style="text-align: center;display:none;"id="about_author">
+          <h4>關於作者</h4>
+          <span style="font-size:20px" class="left"><a href="https://cabao.github.io/NCHU_WEB_HW1/4104029043/intro.html" target="_blank">Cabao</a></span>
+          <iframe class="right" src="https://ghbtns.com/github-btn.html?user=cabao&repo=NCHU_WEB_HW4&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s4" ><a class="active">主食</a></li>
+          <li class="tab col s4"><a>飲品</a></li>
+          <li class="tab col s4"><a>甜點</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <div class="row main_area" id="food">
+    <div class="row">
+      <div class="col l4"></div>
+      <div class="col s12 l8">
+        <a class="waves-effect waves-light btn" onclick="toggle_div('f1')">青嵐食事處</a>
+        <a class="waves-effect waves-light btn" onclick="toggle_div('f2')">橋下大叔</a>
+        <a class="waves-effect waves-light btn" onclick="toggle_div('f3')">藏壽司</a>
+      </div>
+    </div>
+      <!-- <div class="col l4"></div> -->
+      <div class="col s12 m7 l4" id="f1">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/food/1-1.jpg">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">青嵐食事處</span></li>
+              </br>
+              <li><span id="more_f1" class="more" style="font-size:14px;">青嵐食事處位於台北市中山區 介於中山捷運站和雙連捷運站之間的巷內 店面不大 氣氛十足</span></li>
+              <li><a onclick="javascript:show_content('more_f1')" class="right more"><img src="./img/icon/more.png"></a></li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/Ju9N1AagUqm" target="_blank" title="103台北市大同區南京西路25巷24號"><img src="img/icon/map.png"></a>
+            <a href="tel:02-2555-2050" target="_blank" title="02-2555-2050"><img src="img/icon/tel.png"></a>
+            <img onclick="javascript:foodToggle(1)" src="img/icon/picture.png">
+            &nbsp
+            <img class="right" src="img/icon/x.png" onclick="javascript:toggle_div('f1')">
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m7 l4" id="f2">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/food/2.jpg" height="255.68">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">橋下大叔</span></li>
+              </br>
+              <li><span id="more_f2" class="more" style="font-size:14px;">位於光華商場週邊  簡單卻充滿特色的小酒館   &nbsp 最推直火紅燒五花肉蓋飯</span></li>
+              <li><a onclick="javascript:show_content('more_f2')" class="right more"><img src="img/icon/more.png"></a></li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/hQtZttjprYB2" target="_blank" title="104台北市中山區新生北路一段62巷16號"><img src="img/icon/map.png"></a>
+            <a href="tel:02-2567-8904" target="_blank" title="02-2567-8904"><img src="img/icon/tel.png"></a>
+            <img class="right" src="img/icon/x.png" onclick="javascript:toggle_div('f2')">
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m7 l4" id="f3">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/food/3-1.jpg" height="255">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">藏壽司</span></li>
+              </br>
+              <li><span id="more_f3" class="more" style="font-size:14px;">一間很有特色的壽司店  除了一般的迴轉壽司  還可以透過螢幕點餐  餐點就會乘著軌道送至座位</span></li>
+              <li><a onclick="javascript:show_content('more_f3')" class="right more"><img src="img/icon/more.png"></a></li>
+
+
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/J57ffn52Gm82" target="_blank" title="320桃園縣中壢市中正路51號"><img src="img/icon/map.png"></a>
+            <a href="tel:03-426-9305" target="_blank" title="03-426-9305"><img src="img/icon/tel.png"></a>
+            <img onclick="javascript:foodToggle(2)" src="img/icon/picture.png">
+            <img class="right" src="img/icon/x.png" onclick="javascript:toggle_div('f3')">
+          </div>
+        </div>
+      </div>
+
+      <div id="modal1" class="modal">
+        <div class="modal-content"><img src="./img/food/1-2.jpg" width=350px height=350px></div>
+      </div>
+
+      <div id="modal2" class="modal">
+        <div class="modal-content"><img src="./img/food/3-2.gif" width=350px height=350px></div>
+      </div>
+
+
+      <script type="text/javascript">
+        function foodToggle(i){
+          if (i === 1)
+          {
+            $('#modal1').fadeToggle(1111);
+            $('#modal1').click(function() {
+            $(this).fadeOut(1500);
+            });
+          }
+          else if (i === 2)
+          {
+            $('#modal2').fadeToggle(1111);
+            $('#modal2').click(function() {
+            $(this).fadeOut(1500);
+            });
+          }
+        }
+      </script>
+    </div>
+
+    <div class="row main_area" id="drink" style="display:none">
+      <div class="col l4"></div>
+      <div class="col s12 m7 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/drink/1.jpg">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">風雨珈琲</span></li>
+              </br>
+              <li><span id="more_d1" class="more" style="font-size:14px;">風雨珈琲位於桃園市區，是一間古色古香的咖啡廳，很適合與朋友坐著聊天，或是coding。</span></li>
+              <li><a onclick="javascript:show_content('more_d1')" class="right more"><img src="./img/icon/more.png"></a></li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/Mw5pjaXdwm42" target="_blank" title="330桃園市桃園區民權路25巷12號1樓"><img src="img/icon/map.png"></a>
+            <a href="tel:03-336-0750" target="_blank" title="03 336 0750"><img src="img/icon/tel.png"></a>
+            <img src="img/icon/menu.png" onclick="javascript:show_menu(1);">
+          </div>
+        </div>
+      </div>
+      <div id="modal3" class="modal">
+        <div class="modal-content"><img src="./img/drink/menu.gif" width=350px height=350px></div>
+      </div>
+    </div>
+
+    <div class="row main_area" id="dessert" style="display:none">
+    <div class="row">
+      <div class="col l4"></div>
+      <div class="col s12 l8">
+        <a class="waves-effect waves-light btn" onclick="toggle_div('de1')">多拿滋</a>
+        <a class="waves-effect waves-light btn" onclick="toggle_div('de2')">草莓大福</a>
+        <a class="waves-effect waves-light btn" onclick="toggle_div('de3')">風雨珈琲</a>
+      </div>
+    </div>
+      <div class="col s12 m7 l4" id="de1">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/dessert/1.jpg">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">Mister Donut x 卡娜赫拉</span></li>
+              <li><span id="more_de1" class="more" style="font-size:14px;">在桃園遠東百貨地下室的Mister Donut，</br>純粹因為卡娜赫拉上榜。</span></li>
+              <li><a onclick="javascript:show_content('more_de1')" class="right more"><img src="./img/icon/more.png"></a></li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/Se354UofqQ62" target="_blank" title="33041桃園市桃園區中正路20號B1"><img src="img/icon/map.png"></a>
+            <a href="tel:03-334-7384" target="_blank" title="03-334-7384"><img src="img/icon/tel.png"></a>
+            <img class="right" src="img/icon/x.png" onclick="javascript:toggle_div('de1')">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m7 l4" id="de2">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/dessert/2.jpg" height="340">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">陽明山草莓大福</span></li>
+              <li><span id="more_de2" class="more" style="font-size:14px;">在陽明山上一家充滿日式氣息的小屋所賣，</br>非常大顆的草莓大福。</span></li>
+              <li><a onclick="javascript:show_content('more_de2')" class="right more"><img src="./img/icon/more.png"></a></li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/cfmWe1QCmeq" target="_blank" title="112台北市北投區竹子湖路55-1號陽明山國家公園"><img src="img/icon/map.png"></a>
+            <a href="tel:0972-966-808" target="_blank" title="0972-966-808"><img src="img/icon/tel.png"></a>
+            <img class="right" src="img/icon/x.png" onclick="javascript:toggle_div('de2')">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m7 l4" id="de3">
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/dessert/3.jpg">
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><span style="font-size:18px;">濃抹茶蛋糕</span></li>
+              <li><span id="more_de3" class="more" style="font-size:14px;">同樣是在風雨珈琲的濃抹茶蛋糕，</br>濃郁的抹茶味，配上入口即化的蛋糕。</span></li>
+              <li><a onclick="javascript:show_content('more_de3')" class="right more"><img src="./img/icon/more.png"></a></li>
+
+            </ul>
+          </div>
+          <div class="card-action">
+            <a href="https://goo.gl/maps/Mw5pjaXdwm42" target="_blank" title="330桃園市桃園區民權路25巷12號1樓"><img src="img/icon/map.png"></a>
+            <a href="tel:03-336-0750" target="_blank" title="03-336-0750"><img src="img/icon/tel.png"></a>
+            <img src="img/icon/menu.png" onclick="javascript:show_menu(2);">
+            <img class="right" src="img/icon/x.png" onclick="javascript:toggle_div('de3')">
+
+          </div>
+        </div>
+      </div>
+
+      <div id="modal4" class="modal">
+        <div class="modal-content"><img src="./img/drink/menu.gif" width=350px height=350px></div>
+      </div>
+    </div>
+  </body>
+</html>

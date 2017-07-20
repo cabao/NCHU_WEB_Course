@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>履歷表產生器v1.0.0</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.datepicker').pickadate({
+          min: new Date(1950,1,1),
+          max: new Date(2017,4,29),
+          selectMonths: true,
+          selectYears: 67,
+          closeOnClear: true,
+          formatSubmit: 'yyyy/mm/dd'
+        });
+        $('select').material_select();
+        $('textarea#textarea1').characterCounter();
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container" style="background-color:white;border-radius:20px;box-shadow:0 4px 8px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <div class="row"></div>
+      <h3>&nbsp履歷表產生器</h3>
+      <div class="row">
+        <form class="col s12" action="resume.jsp" method="post">
+          <div class="row">
+            <div class="input-field col s6">
+              姓名：
+              <input placeholder="" name="username" type="text" class="validate">
+            </div>
+          </div>
+
+          <div class="row">
+            <p>
+              &nbsp&nbsp&nbsp性別：<br><br>
+              <input name="sex" type="radio" id="male" value="男" checked/>&nbsp&nbsp
+              <label for="male">男</label>
+              <input name="sex" type="radio" id="female" value="女"/>
+              <label for="female">女</label>
+            </p>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+            生日：
+              &nbsp<input type="date" class="datepicker" name="date_input">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              兵役狀況：
+              <select name="military_status" size="1">
+                <option value="" selected></option>
+                <option value="役畢">役畢</option>
+                <option value="屆退">屆退</option>
+                <option value="未役">未役</option>
+                <option value="待役">待役</option>
+                <option value="免役">免役</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              學歷：
+              <select name="education" size="7" multiple>
+                <option value="" disabled></option>
+                <option value="國小">國小</option>
+                <option value="國中">國中</option>
+                <option value="高中">高中</option>
+                <option value="大學">大學</option>
+                <option value="研究所">研究所</option>
+                <option value="博士">博士</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              能力/專長：<br>
+                <input type="checkbox" name="skill" id="skill1" value="C"/>
+                <label for="skill1">C&nbsp&nbsp</label>
+                <input type="checkbox" name="skill" id="skill2" value="C++"/>
+                <label for="skill2">C++&nbsp&nbsp</label>
+                <input type="checkbox" name="skill" id="skill3" value="Java"/>
+                <label for="skill3">Java&nbsp&nbsp</label>
+                <input type="checkbox" name="skill" id="skill4" value="Python"/>
+                <label for="skill4">Python&nbsp&nbsp</label>
+                <input type="checkbox" name="skill" id="skill5" value="JavaScript"/>
+                <label for="skill5">JavaScript&nbsp&nbsp</label>
+                <input type="checkbox" name="skill" id="skill6" value="PHP"/>
+                <label for="skill6">PHP&nbsp&nbsp</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s8">
+              <textarea name="self_intro" id="textarea1" class="materialize-textarea" data-length="600"></textarea>
+              <label for="textarea1"><span style="color:black">自傳：</span></label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s8">
+              <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>

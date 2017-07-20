@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>slide-toggle</title>
+  <script src="./js/jquery-3.2.0.min.js" charset="utf-8"></script>
+  <style type="text/css">
+    #login { width: 300px; }
+    #open { margin: 0; cursor: pointer; background: yellow; color: black; padding: 5px; }
+    form { display: none; padding : 3px; border : 1px solid black; }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#open').click(function() {
+      $('#login form').slideToggle('300');
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="login">
+    <p id="open">登入</p>
+    <form>
+      <p> 使用者名稱: <input type="text" id="username"/> </p>
+      <p> 使用者密碼: <input type="text" id="password"/> </p>
+      <p> <input type="submit" id="button" value="登入"/> </p>
+    </form>
+  </div>
+</body>
+</html>

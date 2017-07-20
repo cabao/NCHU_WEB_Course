@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="text/javascript">
+    function getForm()
+    {
+      var f = document.form1;
+      var uname = f.username.value;
+      var ubirth = f.birthday.value;
+      if (f.sex[0].checked === true)
+        var usex = "Male";
+      else
+        var usex = "Female";
+      var uhobby = f.hobby;
+      var hobbyarr = [];
+      var j = 0;
+      for (var i = 0; i < f.hobby.length; i++)
+      {
+        if (f.hobby[i].checked)
+          hobbyarr.push(f.hobby[i].value);
+      }
+      var unote = document.form1.note.value;
+      alert("您輸入的資料為：\n姓名："+uname+"\n生日："+ubirth+"\n性別："+usex
+             +"\n興趣："+hobbyarr+"\n自傳："+unote);
+      var tablePlace = document.getElementById("myTable");
+      var t = document.createElement('table');
+      var r1 = document.createElement("tr");
+      var r2 = document.createElement("tr");
+      var r3 = document.createElement("tr");
+      var r4 = document.createElement("tr");
+      var th_name = document.createElement("th");
+      var th_birthday = document.createElement("th");
+      var th_sex = document.createElement("th");
+      var td_name = document.createElement("td");
+      var td_birthday = document.createElement("td");
+      var td_sex = document.createElement("td");
+      var text_node_name = document.createTextNode('姓名');
+      var val_name = document.createTextNode(uname);
+      var text_node_birthday = document.createTextNode('生日');
+      var val_birthday = document.createTextNode(ubirth);
+      var text_node_sex = document.createTextNode('性別');
+      var val_sex = document.createTextNode(usex);
+
+      var th_hobby = document.createElement("th");
+      var th_note = document.createElement("th");
+      var td_hobby = document.createElement("td");
+      var td_note = document.createElement("td");
+      var text_node_hobby = document.createTextNode('興趣');
+      var val_hobby = document.createTextNode(hobbyarr);
+      var text_node_note = document.createTextNode('自傳');
+      var val_note = document.createTextNode(unote);
+
+      tablePlace.appendChild(t);
+      t.appendChild(r1);
+      t.appendChild(r2);
+      t.appendChild(r3);
+      t.appendChild(r4);
+      if (uname !=  "")
+      {
+        r1.appendChild(th_name);
+        th_name.appendChild(text_node_name);
+        r2.appendChild(td_name);
+        td_name.appendChild(val_name);
+        td_name.setAttribute("onmouseover", "this.style.color='red',this.style.fontStyle='italic',this.style.fontSize='20pt'");
+        td_name.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial',this.style.fontSize='12pt'");
+      }
+
+      if (ubirth !=  "")
+      {
+        r1.appendChild(th_birthday);
+        th_birthday.appendChild(text_node_birthday);
+        r2.appendChild(td_birthday);
+        td_birthday.appendChild(val_birthday);
+        td_birthday.setAttribute("onmouseover", "this.style.color='red',this.style.fontStyle='italic',this.style.fontSize='20pt'");
+        td_birthday.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial',this.style.fontSize='12pt'");
+      }
+
+      r1.appendChild(th_sex);
+      th_sex.appendChild(text_node_sex);
+      r2.appendChild(td_sex);
+      td_sex.appendChild(val_sex);
+      td_sex.setAttribute("onmouseover", "this.style.color='red',this.style.fontStyle='italic',this.style.fontSize='20pt'");
+      td_sex.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial',this.style.fontSize='12pt'");
+
+
+      if (hobbyarr !=  "")
+      {
+        r3.appendChild(th_hobby);
+        th_hobby.appendChild(text_node_hobby);
+        r4.appendChild(td_hobby);
+        td_hobby.appendChild(val_hobby);
+        td_hobby.setAttribute("onmouseover", "this.style.color='red',this.style.fontStyle='italic',this.style.fontSize='20pt'");
+        td_hobby.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial',this.style.fontSize='12pt'");
+      }
+
+      if (unote !=  "")
+      {
+        r3.appendChild(th_note);
+        th_note.appendChild(text_node_note);
+        r4.appendChild(td_note);
+        td_note.appendChild(val_note);
+        td_note.setAttribute("onmouseover", "this.style.color='red',this.style.fontStyle='italic',this.style.fontSize='20pt'");
+        td_note.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial',this.style.fontSize='12pt'");
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <form name="form1">
+    姓名&nbsp: <input type="text" name="username" placeholder="請輸入姓名"><br>
+    生日&nbsp: <input type="date" name="birthday"><br>
+    性別 :
+      <input type="radio" name="sex" value="True" checked>男
+      <input type="radio" name="sex" value="False">女<br>
+    興趣 : <br>
+      <input type="checkbox" name="hobby" value="電視">電視<br>
+      <input type="checkbox" name="hobby" value="電影">電影<br>
+      <input type="checkbox" name="hobby" value="看書">看書<br>
+    自傳 ： <br>
+      <textarea rows=5 cols=50 name=note placeholder="請輸入自傳"></textarea><br>
+    <button id="btn" type="button" name="button" onclick="javascript:getForm()">Submit</button>
+  </form>
+
+  <div id="myTable">
+
+  </div>
+
+</body>
+</html>

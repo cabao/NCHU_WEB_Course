@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style type="text/css">
+ .more { padding : 3px; border : 1px solid black; width : 200px; }
+.more-options { font-size : 10pt; }
+</style>
+<script language="JavaScript">
+$(document).ready(function() {
+$('p.more').hide();
+$('a.short').hide();
+$('a.more').click(function() {
+$('p.more').fadeIn('1500');
+$(this).hide();
+$('a.short').show();
+ return false;
+});
+$('a.short').click(function() { 
+$('p.more').fadeOut('1500');
+$('a.more').show(); $(this).hide(); return false;
+});
+$('a.toggle').click(function() {
+$('p.more').fadeToggle('1500');
+return false;
+});
+ });
+</script>
+  <title>Document</title>
+</head>
+<body>
+<div id="search">
+<h2>滑動顯示搜尋選項</h2> <input type="text" width="50"/>
+<input type="submit" value="搜尋"/>
+<br/>
+<a href="#" class="more-options">更多搜尋選項</a>
+ <div class="more">
+ <input type="radio" name="category"/>中文網頁
+<br/>
+<input type="radio" name="category"/>英文網頁
+<br/> <input type="checkbox" name="language"/>包含簡繁
+<br/>
+</div>
+</div>
+</body>
+</html>

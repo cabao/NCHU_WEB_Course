@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小考</title>
+  <script src="./jquery-3.2.0.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    function li_Modify()
+    {
+      document.getElementById("html_5").innerHTML="HTML5";
+      document.getElementById("css_3").innerHTML="CSS3";
+      var l = document.getElementById("list");
+      var new_li = document.createElement("li");
+      var t = document.createTextNode("MySQL");
+      new_li.appendChild(t);
+      l.appendChild(new_li);
+    }
+  </script>
+  <script type="text/javascript">
+      function css_Modify()
+      {
+
+        $( "li" ).on( "mouseover", function() {
+          $( this ).css( "color", "red" );
+          $( this ).css( "fontSize", "20pt" );
+        });
+
+        $( "li" ).on( "mouseleave", function() {
+          $( this ).css( "color", "black" );
+          $( this ).css( "fontSize", "12pt" );
+        });
+      }
+  </script>
+
+</head>
+<body>
+
+  <h2>Web Programming</h2>
+  <hr>
+  Content
+  <ul id="list">
+    <li id="html_5">HTML</li>
+    <li id="css_3">CSS</li>
+    <li id="">DOM</li>
+    <li>JavaScript</li>
+    <li id="jsp_mysql">JSP</li>
+  </ul>
+  <button onclick="javascript:li_Modify()">以JS更改元素內容</button>
+  <button onclick="javascript:css_Modify()">以jQuery更改CSS</button>
+  <button id="wp_btn">Web Programming</button>
+  <script>
+    $( "#wp_btn" ).click(function() {
+      $('h2').text("Web Programming - 4104029043");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>fadeTo</title>
+  <script src="./js/jquery-3.2.0.min.js" charset="utf-8"></script>
+  <style type="text/css">
+    div { width : 140px; height : 140px; position:absolute; }
+    #one { top : 0; left : 0; background-color : #f00;}
+    #two { top : 60px; left : 60px; background-color : #0f0; }
+    #three { top : 140px; left : 140px; background-color : #00f; }
+  </style>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("div").click(function () {
+        $(this).fadeTo("slow", Math.random());
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="one"></div>
+  <div id="two"></div>
+  <div id="three"></div>
+  </div>
+</body>
+</html>

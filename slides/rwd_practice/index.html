@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <h2>學生成績輸入系統</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-3 menu">
+            <form id="stdForm">
+                學號
+                <input type="text" name="stdNumber" placeholder="請輸入學號">
+                <br> 姓名
+                <input type="text" name="stdName" placeholder="請輸入姓名">
+                <br>成績
+                <input type="text" name="stdGrade" placeholder="請輸入成績">
+                <br><br>
+                <input type="button" onclick="sendStdData()" value="送出資料">
+            </form>
+        </div>
+
+        <div class="col-9">
+            <table id="stdList">
+                <tr>
+                    <th>學號</th>
+                    <th>姓名</th>
+                    <th>成績</th>
+                    <th>刪除按鈕</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p></p>
+    </div>
+
+</body>
+<script>
+    var currentCount = 1;
+
+    function sendStdData() {
+        var stdNumber = getNameValue("stdNumber");
+        var stdName = getNameValue("stdName");
+        var stdGrade = getNameValue("stdGrade");
+        addNewDataToTable(stdNumber, stdName, stdGrade)
+        getId("stdForm").reset();
+    }
+
+    function getNameValue(name) {
+        return document.getElementsByName(name)[0].value;
+    }
+
+    function getId(id) {
+        return document.getElementById(id);
+    }
+
+    function addNewDataToTable(number, name, grade) {
+        var num = getId("stdList").rows.length;
+        var Tr = getId("stdList").insertRow(num);
+        Tr.id = "tr" + currentCount
+        Td = Tr.insertCell(Tr.cells.length);
+        Td.innerHTML = number;
+        Td = Tr.insertCell(Tr.cells.length);
+        Td.innerHTML = name;
+        Td = Tr.insertCell(Tr.cells.length);
+        Td.innerHTML = grade;
+        Td = Tr.insertCell(Tr.cells.length);
+        Td.innerHTML = "<button class = \"deleteBtn\" onclick=\"removeDataToTable(" + Tr.id + ")\">刪除</button>";
+        currentCount += 1;
+    }
+
+    function removeDataToTable(id) {
+        var rowIndex = id.rowIndex;
+        getId("stdList").deleteRow(rowIndex);
+    }
+</script>
+
+</html>

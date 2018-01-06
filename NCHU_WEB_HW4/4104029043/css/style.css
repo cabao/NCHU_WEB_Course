@@ -27,3 +27,7 @@ body {
     75%  {background-color:#C0FFC2;}
     100% {background-color:#F69D9D;}
 }
+
+.cardImg{
+    height:300px
+}
